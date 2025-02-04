@@ -7,7 +7,7 @@
 docker compose up -d
 ```
 
-### Preencha a database utilizando o código algumas vezes
+### Preencha a database utilizando o código
 ```sh
 python manage.py seed
 ```

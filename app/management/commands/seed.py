@@ -15,7 +15,7 @@ class Command(BaseCommand):
 
         # Create Users
         users = []
-        for _ in range(10):
+        for _ in range(100):
             user = User.objects.create(
                 name=fake.name(),
                 email=fake.unique.email(),
@@ -24,7 +24,7 @@ class Command(BaseCommand):
 
         # Create Rooms
         rooms = []
-        for _ in range(5):
+        for _ in range(50):
             room = Room.objects.create(
                 name=fake.company(),
                 capacity=random.randint(5, 50),
@@ -33,7 +33,7 @@ class Command(BaseCommand):
             rooms.append(room)
 
         # Create Reservations
-        for _ in range(20):
+        for _ in range(200):
             start_time = timezone.now()
             end_time = start_time + timedelta(hours=random.randint(1, 4))
 
