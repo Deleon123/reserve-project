@@ -22,7 +22,7 @@ python manage.py test
 ### Swagger UI
 Para acessar a documentação pelo Swagger acesse:
 ```
-http://localhost:8000/api/docs/
+http://localhost:8080/api/docs/
 ```
 É possível conferir todas as rotas da API e como utilizar cada uma
 
