@@ -56,9 +56,10 @@ class APITestCases(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     def test_check_room_availability(self):
-        url = reverse('check_room_availability', args=[self.room.id])
-        params = {"start_time": timezone.now() + timedelta(days=1, hours=5), "end_time": timezone.now() + timedelta(days=1, hours=7)}
-        response = self.client.get(url, params)
+        start_time = timezone.now() + timedelta(days=1, hours=5)
+        end_time = timezone.now() + timedelta(days=1, hours=7)
+        url = reverse('check_room_availability', args=[self.room.id, start_time, end_time])
+        response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
     
     def test_add_reservation(self):
