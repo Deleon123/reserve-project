@@ -1,0 +1,32 @@
+services:
+  app:
+    container_name: django
+    build: .
+    ports:
+      - "8080:8000"
+    environment:
+      - PG_DATABASE=postgres
+      - PG_USER=postgres
+      - PG_PASS=postgres
+      - PG_HOST=db
+      - PG_PORT=5432
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+  db:
+    container_name: db
+    image: postgres:17
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - 5500:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata: {}
